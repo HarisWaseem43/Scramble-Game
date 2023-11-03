@@ -81,6 +81,12 @@ const ScrambleGame = () => {
   //     }
   //   });
 
+  const handleEnterPress = (e) => {
+    if (e.key === "Enter") {
+      handleButtonClick();
+    }
+  };
+
   const handleButtonClick = () => {
     if (!play) {
       setPlay(true);
@@ -115,6 +121,7 @@ const ScrambleGame = () => {
             className={isInputHidden ? "hidden" : ""}
             value={tempWord}
             onChange={(e) => setTempWord(e.target.value)}
+            onKeyPress={handleEnterPress}
           />
           <button className="btn" onClick={handleButtonClick}>
             {play ? "Guess" : "Click here to start!"}
